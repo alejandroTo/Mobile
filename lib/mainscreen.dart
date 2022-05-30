@@ -18,7 +18,7 @@ class MainScreen extends StatefulWidget {
 
 
 
-_uploadNew (BuildContext context,String _numberUser) async {
+_uploadNew (BuildContext context,String numberUser) async {
 
   FilePickerResult? result;
 
@@ -38,7 +38,7 @@ _uploadNew (BuildContext context,String _numberUser) async {
       List<int> iterable = fileBytes ?? [];
       //print(iterable.length);
       var headers = {
-        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyIsImtpZCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvdGVjbm1zYWx0aWxsby5zaGFyZXBvaW50LmNvbUAxZTcxY2M3NC1jODJmLTRmMTItYTEyMy1kM2UzN2YzOGY5NmIiLCJpc3MiOiIwMDAwMDAwMS0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDBAMWU3MWNjNzQtYzgyZi00ZjEyLWExMjMtZDNlMzdmMzhmOTZiIiwiaWF0IjoxNjUzNzQ0MDYzLCJuYmYiOjE2NTM3NDQwNjMsImV4cCI6MTY1MzgzMDc2MywiaWRlbnRpdHlwcm92aWRlciI6IjAwMDAwMDAxLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMEAxZTcxY2M3NC1jODJmLTRmMTItYTEyMy1kM2UzN2YzOGY5NmIiLCJuYW1laWQiOiIyZmNiZTU5NC1iM2RkLTQ1ZDMtYWI3MS03ZDVjNDE0ZDIwMGFAMWU3MWNjNzQtYzgyZi00ZjEyLWExMjMtZDNlMzdmMzhmOTZiIiwib2lkIjoiMjFkZmFkMjctYWRiYy00ZTQ3LTg2M2YtYmNmNmM2NTc2YzJjIiwic3ViIjoiMjFkZmFkMjctYWRiYy00ZTQ3LTg2M2YtYmNmNmM2NTc2YzJjIiwidHJ1c3RlZGZvcmRlbGVnYXRpb24iOiJmYWxzZSJ9.lXnZDegY92SCE6TJP1TyidBTp1fLkgQKWSk9HcUxtdoAZdk2yl7DUGXdKq8ZAYkRbT0eRUTpMXnxQcKLgdNOygB6r6d-ORIiXAd197swkGzPcWn86E61etCOiSwdMEF_eNfYb8kwka_kJjxP7phNskFUKOwB-XrQFvRqYp48ZFm4kOOiaR7d9pDpSeDXid_Mo72JcL8ZrmiHMEaWs-5y2VaFIg1UQO-LVVRs1FRu-5BzSzdvrP5cXj43Uz1aubuJGemWS1NRiXRIpwY9PEteKArfmQqRSK462ezP3SeWXymkdyxpj1g83OCpdwuifqbWwI8ipMTyzYMaH3QFhfA1KQ',
+        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyIsImtpZCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvdGVjbm1zYWx0aWxsby5zaGFyZXBvaW50LmNvbUAxZTcxY2M3NC1jODJmLTRmMTItYTEyMy1kM2UzN2YzOGY5NmIiLCJpc3MiOiIwMDAwMDAwMS0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDBAMWU3MWNjNzQtYzgyZi00ZjEyLWExMjMtZDNlMzdmMzhmOTZiIiwiaWF0IjoxNjUzOTQzNjIyLCJuYmYiOjE2NTM5NDM2MjIsImV4cCI6MTY1NDAzMDMyMiwiaWRlbnRpdHlwcm92aWRlciI6IjAwMDAwMDAxLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMEAxZTcxY2M3NC1jODJmLTRmMTItYTEyMy1kM2UzN2YzOGY5NmIiLCJuYW1laWQiOiIyZmNiZTU5NC1iM2RkLTQ1ZDMtYWI3MS03ZDVjNDE0ZDIwMGFAMWU3MWNjNzQtYzgyZi00ZjEyLWExMjMtZDNlMzdmMzhmOTZiIiwib2lkIjoiMjFkZmFkMjctYWRiYy00ZTQ3LTg2M2YtYmNmNmM2NTc2YzJjIiwic3ViIjoiMjFkZmFkMjctYWRiYy00ZTQ3LTg2M2YtYmNmNmM2NTc2YzJjIiwidHJ1c3RlZGZvcmRlbGVnYXRpb24iOiJmYWxzZSJ9.mdh4lgXJVKanHp5C9HEhDNqOMnLILIS7AFMP6hwAGIj0qzYhmRfP0ViJmmZvwH1dyp22EKlo0cBi9b7vmspsmQeZbL1HI7khRJ97uPqh3uPIOQNMVL4tscdzrhvIE5aj0m1XDQNtMPLLOgXqtRURi08UvQX_QPDz1GxxGyOQM1wIAVIucmc5f-RZszZFhGoA7oV7kc_w_wpgOprmuKqvuEzBSzLOT0by5o1gYvKxr1uj5jj5K4_GVcdsUkbx2pelgbTplPQ_ImYMv4a51FOHqfjpG9p2sFmMouZ2rb_jqJ_HC7JP_aYsWGgr0I5fhfqXW5Ha-x8nIEYgOXjdYQk3gg',
         'Accept': 'application/json; odata=verbose',
         'Content-Type': 'text/plain'
       };
@@ -52,7 +52,7 @@ _uploadNew (BuildContext context,String _numberUser) async {
 
       if (response.statusCode == 200) {
         //await response.stream.bytesToString();
-        _numberUser =  ((fileName.substring(22,fileName.length-4)));
+        numberUser =  ((fileName.substring(22,fileName.length-4)));
         showDialog(
             context: context,
             builder: (context) {
@@ -130,7 +130,7 @@ class _MainScreenState extends State<MainScreen> {
 
     getToken();
 
-    subscribeTokenToTopic(mtoken,"");
+    //subscribeTokenToTopic(mtoken,"weather");
     //FirebaseMessaging.instance.subscribeToTopic("Animal");
   }
   subscribeTokenToTopic(token, topic) async {
@@ -162,7 +162,9 @@ class _MainScreenState extends State<MainScreen> {
         Uri.parse('https://fcm.googleapis.com/fcm/send'),
         headers: <String, String>{
           'Content-Type': 'application/json',
-          'Authorization': 'key=AAAAjzPs1gU:APA91bFITMYK7QK5rcn8Z77LPnM-r2tYLjSexOKRJEWIdjVp7jjLFoo1tnBtvgNtWJEOlOXNlyCkFz7Innn_q9mQaeacG2mooskdDmpYUH4JLJ7c2pjMH1A3-tqvIlTnjkj7dzauW7JW',
+          //'Authorization': 'key=AAAAjzPs1gU:APA91bFITMYK7QK5rcn8Z77LPnM-r2tYLjSexOKRJEWIdjVp7jjLFoo1tnBtvgNtWJEOlOXNlyCkFz7Innn_q9mQaeacG2mooskdDmpYUH4JLJ7c2pjMH1A3-tqvIlTnjkj7dzauW7JW',
+          'Authorization': 'key=AAAABax0ty8:APA91bGN6EXG7q_n9q6uGr6ElAfoe0jEyyi-ZkKPwpWMHQMW8sqcjn0MuBIT2LjVuVyJgush3bKhLBSqxFxCQF2rnHTB0BWjJBhsC5ZOAKzEBLk7kQ2qufmADL_q4ZJ3z5tcBHZssHpg',
+
         },
         body: jsonEncode(
           <String, dynamic>{
@@ -180,7 +182,11 @@ class _MainScreenState extends State<MainScreen> {
           },
         ),
       );
-    } catch (e) {
+      print("exito");
+      print("$token");
+    }
+
+    catch (e) {
       print("error push notification");
     }
   }
@@ -193,6 +199,7 @@ class _MainScreenState extends State<MainScreen> {
           });
 
           saveToken(token!);
+          //print(token);
         }
     );
   }
@@ -279,43 +286,7 @@ class _MainScreenState extends State<MainScreen> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextFormField(
-              controller: username,
-            ),/*
-            TextFormField(
-              controller: username,
-            ),
-            TextFormField(
-              controller: title,
-            ),
-            TextFormField(
-              controller: body,
-            ),
-
-
-            GestureDetector(
-              onTap: () async {
-                String name = username.text.trim();
-                String titleText = title.text;
-                String bodyText = body.text;
-
-                if(name != "") {
-                  DocumentSnapshot snap =
-                  await FirebaseFirestore.instance.collection("UserTokens").doc(name).get();
-                  String token = snap['token'];
-                  print(token);
-
-                  sendPushMessage(token, titleText, bodyText);
-                }
-              },
-              child: Container(
-                height: 40,
-                width: 200,
-                color: Colors.red,
-              ),
-            ),
-          ],*/
+          children: const [
         ]
         ),
       ),
@@ -323,12 +294,13 @@ class _MainScreenState extends State<MainScreen> {
     onPressed:() async {
       _uploadNew(context,_numberUser);
       DocumentSnapshot snap =
-      await FirebaseFirestore.instance.collection("UserTokens").doc("User$_numberUser").get();
-    String token = snap['token'];
-    print(token);
+      await FirebaseFirestore.instance.collection("UserTokens").doc("User1").get();
+      //print("$_numberUser fdsfd");
+      String token = snap['token'];
+      print(token);
 
-    sendPushMessage(token, "Alerta", "Tienes un nuevo c");
-
+      sendPushMessage("cdXh-BvuQ4GBNcbkip-ADY:APA91bFurIlVi8R28tS5ktzcXeiweN1T5DekV7042RaCpPKmz5OfBCd9YEmO0Rro92-cuHUz3HfzjTGiyGugahpJXHAReHfleNBOluMauqibDQ34uPXN_XeWNRU5-FOx-NGYccWcHwEY", "Alerta", "Tienes un nuevo docuemnto");
+      print(token);
     },
 
     tooltip: 'Increment',

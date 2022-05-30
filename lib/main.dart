@@ -5,9 +5,22 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  await Firebase.initializeApp(
+    // Replace with actual values
+    options: FirebaseOptions(
+      apiKey: "AIzaSyCCSP7ABxzPZ96KGYFwfvBpw1EK3KB41jo",
+      appId: "1:615051482629:web:c07a1f9e8f85a75f872e6c",
+      messagingSenderId: "615051482629",
+      projectId: "tsmcarta",
+    ),
+  );
+  print('Handling a background message ${message.messageId}');
+}
 
-
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     // Replace with actual values
@@ -18,15 +31,15 @@ void main() async {
       projectId: "tsmcarta",
     ),
   );
-  //FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-  runApp(MyApp());
+  runApp(const MyApp());
 
-  FirebaseMessaging.instance.getToken().then((value) => print(value));
+  //FirebaseMessaging.instance.getToken().then((value) => print(value));
 }
 
 class MyApp extends StatelessWidget {
-
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
